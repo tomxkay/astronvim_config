@@ -32,7 +32,7 @@ return {
     [",tba"] = { "<cmd>tab ba<cr>", desc = "Buffers tab all" },
 
     -- Delete marks
-    ["<leader><leader>DM"] = {
+    [",,DM"] = {
       '<cmd>delm! | delm A-Z0-9"<><CR> | :echo "Cleared all marks!"<CR>',
       desc = "Delete all marks",
     },
@@ -44,16 +44,16 @@ return {
     ["<down>"] = { "<cmd>resize -5<cr>", desc = "Resize window down" },
 
     -- Clear highlights
-    ["<leader><c-l>"] = { "<cmd>noh<cr>", desc = "Clear highlight" },
+    [",<c-l>"] = { "<cmd>noh<cr>", desc = "Clear highlight" },
 
     -- Misc
     ["<F5>"] = { "<cmd>! mysql -u $SQL_USER -p $SQL_PASSWORD $SQL_DB -t 2>/dev/null<CR>" },
-    ["<leader>QR"] = {
+    [",QR"] = {
       ":.!qrencode -m 2 -t utf8<CR>",
       desc = "QR codify current line",
     },
     ["Q"] = { "!!$SHELL<cr>", desc = "Yield output of current line of $SHELL command" },
-    ["<leader><leader><leader>"] = {
+    [",,,"] = {
       ":.!",
       desc = "Yield output of current line through specified $SHELL command",
     },
@@ -85,8 +85,8 @@ return {
     },
 
     -- WinShift
-    ["<c-w><c-m>"] = { "<cmd>WinShift<cr>", desc = "Move windows" },
-    ["<c-w>X"] = { "<cmd>WinShift swap<cr>", desc = "Swap two windows" },
+    ["sM"] = { "<cmd>WinShift<cr>", desc = "Move windows" },
+    ["sX"] = { "<cmd>WinShift swap<cr>", desc = "Swap two windows" },
 
     -- Vim Test
     [",l"] = { "<cmd>TestLast<cr>" },
