@@ -36,7 +36,6 @@ return {
     { "vim-test/vim-test" }, -- Vim test util
 
     -- Utils
-    { "dhruvasagar/vim-zoom" }, -- Tmux-like window zoom
     { "junegunn/vim-easy-align" }, -- Text align util
     { "ojroques/nvim-oscyank" }, -- Copy to system clipboard via OSC52
     { "rmagatti/auto-session" }, -- Auto session attach
@@ -77,6 +76,16 @@ return {
       config = function()
         require("trouble").setup {
           position = "left",
+        }
+      end,
+    },
+
+    { -- Zoom toggle zen mode
+      "Pocco81/true-zen.nvim",
+      config = function()
+        require("true-zen").setup {
+          -- your config goes here
+          -- or just leave it empty :)
         }
       end,
     },

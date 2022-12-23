@@ -64,9 +64,13 @@ return {
     [",bb"] = { "<cmd>G blame<cr>", desc = "Git blame" },
 
     -- Zoom Toggle
-    ["<cr>"] = { "<Plug>(zoom-toggle)", desc = "Zoom window toggle" },
-    [",z"] = { "<Plug>(zoom-toggle)", desc = "Zoom window toggle" },
+    ["<cr>"] = { "<cmd>TZFocus<cr>", desc = "Tmux-like zoom" },
+    [",z"] = { "<cmd>TZFocus<cr>", desc = "Tmux-like zoom" },
     [",,z"] = { "<C-w>=", desc = "Normalize windows" },
+
+    ["za"] = { "<cmd>TZAtaraxis<cr>", desc = "Zen mode" },
+    ["zf"] = { "<cmd>TZFocus<cr>", desc = "Tmux-like zoom" },
+    ["zm"] = { "<cmd>TZMinimalist<cr>", desc = "Minimist mode" },
 
     -- Comment
     [",/"] = { function() require("Comment.api").toggle.linewise.current() end, desc = "Comment line" },
