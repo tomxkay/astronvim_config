@@ -67,6 +67,7 @@ return {
             "lazygit",
             "",
           },
+          refresh_interval = 5000,
         }
       end,
     },
