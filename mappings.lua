@@ -117,7 +117,7 @@ return {
     ["td"] = { "<cmd>TroubleToggle document_diagnostics<cr>" },
     ["tq"] = { "<cmd>TroubleToggle quickfix<cr>" },
     ["tL"] = { "<cmd>TroubleToggle loclist<cr>" },
-    ["tR"] = { "<cmd>TroubleToggle lsp_references<cr>" },
+    ["tr"] = { "<cmd>TroubleToggle lsp_references<cr>" },
 
     -- Telescope
     [",T"] = { "<cmd>Telescope<cr>" },
