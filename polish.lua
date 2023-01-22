@@ -1,28 +1,30 @@
-function configure_custom_auto_hlsearch()
+function configure_auto_hlsearch_toggle()
   local namespace = vim.api.nvim_create_namespace
+  -- Initialie default auto_hlsearch state
   vim.g.auto_hlsearch = false
 
   -- Default to disable auto highlight search
   vim.on_key(nil, namespace "auto_hlsearch")
 
-  -- Set keybinding to toggle auto hlsearch
-  vim.keymap.set("n", ",,h", function()
+  function toggle_auto_hlsearch()
     vim.g.auto_hlsearch = not vim.g.auto_hlsearch
 
     if vim.g.auto_hlsearch == true then
-      vim.on_key(auto_hlsearch_cb, namespace "auto_hlsearch")
+      vim.on_key(function(char)
+        if vim.fn.mode() == "n" then
+          local new_hlsearch = vim.tbl_contains({ "<CR>", "n", "N", "*", "#", "?", "/" }, vim.fn.keytrans(char))
+          if vim.opt.hlsearch:get() ~= new_hlsearch then vim.opt.hlsearch = new_hlsearch end
+        end
+      end, namespace "auto_hlsearch")
     else
       vim.opt.hlsearch = true
       vim.on_key(nil, namespace "auto_hlsearch")
     end
-  end, { silent = true })
-
-  auto_hlsearch_cb = function(char)
-    if vim.fn.mode() == "n" then
-      local new_hlsearch = vim.tbl_contains({ "<CR>", "n", "N", "*", "#", "?", "/" }, vim.fn.keytrans(char))
-      if vim.opt.hlsearch:get() ~= new_hlsearch then vim.opt.hlsearch = new_hlsearch end
-    end
   end
+
+  -- Set keybinding to toggle auto hlsearch
+  vim.keymap.set("n", ",,h", toggle_auto_hlsearch, { silent = true, desc = "Toggle auto highlight search" })
+  vim.keymap.set("n", "<leader>uh", toggle_auto_hlsearch, { silent = true, desc = "Toggle auto highlight search" })
 end
 
 return function()
@@ -43,5 +45,5 @@ return function()
     group = group_osc52,
   })
 
-  configure_custom_auto_hlsearch()
+  configure_auto_hlsearch_toggle()
 end
