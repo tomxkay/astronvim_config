@@ -8,10 +8,13 @@ return {
   n = {
     -- Writing files
     [",w"] = { ":w<cr>", desc = "Save File" },
+    [",,w"] = { function() astronvim.ui.toggle_wrap() end, desc = "Toggle wrap" },
 
     -- Spliting buffers
     ["ss"] = { "<cmd>split<cr>", desc = "Split window" },
     ["sv"] = { "<cmd>vsplit<cr>", desc = "Split window vertical" },
+    ["st"] = { "<cmd>tab split<cr>", desc = "Split tab" },
+    ["ts"] = { "<cmd>tab split<cr>", desc = "Split tab" },
 
     -- Moving buffers
     ["sH"] = { "<c-w>H", desc = "Move window left" },
@@ -25,6 +28,8 @@ return {
     ["so"] = { "<C-w>o", desc = "Close all other windows" },
     [",bo"] = { "<cmd>%bd | e# | bd# | '\"<cr>'", desc = "Close all other buffers" },
     [",to"] = { "<cmd>tabonly<cr>", desc = "Close all other tabs" },
+    [",tc"] = { "<cmd>tabclose<cr>", desc = "Close tab" },
+    ["tc"] = { "<cmd>tabclose<cr>", desc = "Close tab" },
 
     -- Layout buffers
     [",sba"] = { "<cmd>ball<cr>", desc = "Buffers split all" },
@@ -64,7 +69,7 @@ return {
     [",bb"] = { "<cmd>G blame<cr>", desc = "Git blame" },
 
     -- Zoom Toggle
-    ["<cr>"] = { "<cmd>TZFocus<cr>", desc = "Tmux-like zoom" },
+    ["<cr>"] = { "<cmd>TZAtaraxis<cr>", desc = "Zen mode" },
     [",z"] = { "<cmd>TZFocus<cr>", desc = "Tmux-like zoom" },
     [",,z"] = { "<C-w>=", desc = "Normalize windows" },
 
@@ -101,7 +106,7 @@ return {
     [",tv"] = { "<cmd>TestVisit<cr>" },
 
     -- Notify
-    [",<C-l>"] = {
+    [",,<c-l>"] = {
       function() require("notify").dismiss { pending = true, silent = true } end,
       desc = "Clear notifications",
     },
@@ -152,6 +157,14 @@ return {
     [",g"] = {
       function() require("telescope.builtin").live_grep() end,
       desc = "Grep codebase",
+    },
+    [",*"] = {
+      function() require("telescope.builtin").grep_string { word_match = "-w" } end,
+      desc = "Grep string under cursor",
+    },
+    [",L"] = {
+      function() require("telescope.builtin").resume() end,
+      desc = "Resume last picker",
     },
     [";"] = { function() require("telescope.builtin").buffers() end },
     ["f"] = {
