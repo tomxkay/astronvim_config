@@ -252,7 +252,7 @@ return {
     ["<up>"] = { "<Plug>SchleppUp", desc = "Move line up" },
     ["<down>"] = { "<Plug>SchleppDown", desc = "Move line down" },
     ["<left>"] = { "<Plug>SchleppLeft", desc = "Move line left" },
-    ["<left>"] = { "<Plug>SchleppRight", desc = "Move line right" },
+    ["<right>"] = { "<Plug>SchleppRight", desc = "Move line right" },
   },
   x = {
     ["<BS>"] = { "x", desc = "Delete highlighted text with backspace in visual mode" },
