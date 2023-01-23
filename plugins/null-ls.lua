@@ -3,22 +3,22 @@ return function(config)
 
   config.sources = {
     -- Set a formatter
-    -- TypeScript
+    -- [TypeScript]
     null_ls.builtins.formatting.eslint_d,
     null_ls.builtins.formatting.prettierd,
     -- Lua
     null_ls.builtins.formatting.stylua,
 
     -- Set a diagnostic
-    -- TypeScript
+    -- [TypeScript]
     null_ls.builtins.diagnostics.eslint_d,
-    -- Ruby
+    -- [Ruby]
     null_ls.builtins.diagnostics.rubocop,
-    -- Lua
+    -- [Lua]
     null_ls.builtins.diagnostics.selene,
 
     -- Set a code action
-    -- TypeScript
+    -- [TypeScript]
     null_ls.builtins.code_actions.eslint_d,
   }
 
