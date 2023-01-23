@@ -63,6 +63,10 @@ return {
       desc = "Yield output of current line through specified $SHELL command",
     },
 
+    -- No-Op
+    ["dj"] = { "<Nop>" },
+    ["dk"] = { "<Nop>" },
+
     -- Plugins Mappings
     -- Git
     ["<c-g>"] = { "<cmd>LazyGit<cr>", desc = "Open lazygit" },
