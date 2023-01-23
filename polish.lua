@@ -35,7 +35,7 @@ return function()
 
   autocmd({ "TextYankPost" }, {
     desc = "Yank to system clipboard via OSC52",
-    callback = function(event)
+    callback = function(_event)
       if not vim.v.event.operator == "y" then return end
 
       if vim.v.event.regname == "" then require("osc52").copy_register "" end
