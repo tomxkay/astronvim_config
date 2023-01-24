@@ -1,6 +1,6 @@
 function configure_auto_hlsearch_toggle()
   local namespace = vim.api.nvim_create_namespace
-  -- Initialie default auto_hlsearch state
+  -- Initialize default auto_hlsearch state
   vim.g.auto_hlsearch = false
 
   -- Default to disable auto highlight search
