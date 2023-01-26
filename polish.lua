@@ -36,11 +36,14 @@ return function()
   autocmd({ "TextYankPost" }, {
     desc = "Yank to system clipboard via OSC52",
     callback = function(_event)
+      local ok, osc52 = pcall(require, "osc52")
+      if not ok then return end
+
       if not vim.v.event.operator == "y" then return end
 
-      if vim.v.event.regname == "" then require("osc52").copy_register "" end
-      if vim.v.event.regname == "+" then require("osc52").copy_register "" end
-      if vim.v.event.regname == "*" then require("osc52").copy_register "" end
+      if vim.v.event.regname == "" then osc52.copy_register "" end
+      if vim.v.event.regname == "+" then osc52.copy_register "" end
+      if vim.v.event.regname == "*" then osc52.copy_register "" end
     end,
     group = group_osc52,
   })
