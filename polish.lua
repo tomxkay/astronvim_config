@@ -1,3 +1,7 @@
+local function ui_notify(str)
+  if vim.g.ui_notifications_enabled then astronvim.notify(str) end
+end
+
 function configure_auto_hlsearch_toggle()
   local namespace = vim.api.nvim_create_namespace
   -- Initialize default auto_hlsearch state
@@ -9,6 +13,8 @@ function configure_auto_hlsearch_toggle()
   function toggle_auto_hlsearch()
     vim.g.auto_hlsearch = not vim.g.auto_hlsearch
 
+    local mode = ""
+
     if vim.g.auto_hlsearch == true then
       vim.on_key(function(char)
         if vim.fn.mode() == "n" then
@@ -16,10 +22,16 @@ function configure_auto_hlsearch_toggle()
           if vim.opt.hlsearch:get() ~= new_hlsearch then vim.opt.hlsearch = new_hlsearch end
         end
       end, namespace "auto_hlsearch")
+
+      mode = "ephemeral mode"
     else
       vim.opt.hlsearch = true
       vim.on_key(nil, namespace "auto_hlsearch")
+
+      mode = "persist mode"
     end
+
+    ui_notify(string.format("Highlight search %s", mode))
   end
 
   -- Set keybinding to toggle auto hlsearch
