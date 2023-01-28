@@ -38,6 +38,7 @@ return {
     -- Utils
     { "junegunn/vim-easy-align" }, -- Text align util
     { "ojroques/nvim-oscyank" }, -- Copy to system clipboard via OSC52
+    { "MunifTanjim/prettier.nvim" }, -- Prettier plugin for nvim lsp
     { "rmagatti/auto-session" }, -- Auto session attach
     { "sindrets/winshift.nvim" }, -- Windows shifting
     { "tpope/vim-repeat" }, -- Extend vim repeat functionality
@@ -67,6 +68,15 @@ return {
             "",
           },
           refresh_interval = 5000,
+        }
+      end,
+    },
+
+    {
+      "dinhhuy258/git.nvim",
+      config = function()
+        require("git").setup {
+          default_mappings = false,
         }
       end,
     },
