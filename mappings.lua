@@ -71,6 +71,7 @@ return {
     -- Git
     ["<c-g>"] = { "<cmd>LazyGit<cr>", desc = "Open lazygit" },
     [",bb"] = { "<cmd>G blame<cr>", desc = "Git blame" },
+    [",bB"] = { "<cmd>GitBlame<cr>", desc = "Git blame" },
 
     -- Zoom Toggle
     ["<cr>"] = { "<cmd>TZAtaraxis<cr>", desc = "Zen mode" },
@@ -80,6 +81,7 @@ return {
     ["za"] = { "<cmd>TZAtaraxis<cr>", desc = "Zen mode" },
     ["zf"] = { "<cmd>TZFocus<cr>", desc = "Tmux-like zoom" },
     ["zm"] = { "<cmd>TZMinimalist<cr>", desc = "Minimist mode" },
+    ["zn"] = { "<cmd>TZNarrow<cr>", desc = "Narrow mode" },
 
     -- Comment
     [",/"] = { function() require("Comment.api").toggle.linewise.current() end, desc = "Comment line" },
@@ -257,6 +259,8 @@ return {
     ["<down>"] = { "<Plug>SchleppDown", desc = "Move line down" },
     ["<left>"] = { "<Plug>SchleppLeft", desc = "Move line left" },
     ["<right>"] = { "<Plug>SchleppRight", desc = "Move line right" },
+
+    ["zn"] = { "<cmd>'<,'>TZNarrow<cr>", desc = "Narrow mode" },
   },
   x = {
     ["<BS>"] = { "x", desc = "Delete highlighted text with backspace in visual mode" },
