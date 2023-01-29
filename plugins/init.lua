@@ -90,6 +90,17 @@ return {
       end,
     },
 
+    { -- Typescript LSP commands wrapper
+      "jose-elias-alvarez/typescript.nvim",
+      after = "mason-lspconfig.nvim",
+      config = function()
+        -- Note: disable the default tsserver setup in lspconfig before setting up this plugin
+        require("typescript").setup {
+          server = astronvim.lsp.server_settings "tsserver",
+        }
+      end,
+    },
+
     { -- Zoom toggle zen mode
       "Pocco81/true-zen.nvim",
       config = function()
