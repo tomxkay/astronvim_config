@@ -32,6 +32,7 @@ return {
     confirm = true, -- ask to save file rather than failing command
     autowrite = true, -- automatically :write before running commands
     autoread = true, -- reload files changes outside vim
+    swapfile = false, -- disable swapfile
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
