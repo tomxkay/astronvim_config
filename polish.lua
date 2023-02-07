@@ -2,7 +2,7 @@ local function ui_notify(str)
   if vim.g.ui_notifications_enabled then astronvim.notify(str) end
 end
 
-function configure_auto_hlsearch_toggle()
+local function configure_auto_hlsearch_toggle()
   local namespace = vim.api.nvim_create_namespace
   -- Initialize default auto_hlsearch state
   vim.g.auto_hlsearch = false
@@ -10,7 +10,7 @@ function configure_auto_hlsearch_toggle()
   -- Default to disable auto highlight search
   vim.on_key(nil, namespace "auto_hlsearch")
 
-  function toggle_auto_hlsearch()
+  local function toggle_auto_hlsearch()
     vim.g.auto_hlsearch = not vim.g.auto_hlsearch
 
     local mode = ""
@@ -47,7 +47,7 @@ return function()
 
   autocmd({ "TextYankPost" }, {
     desc = "Yank to system clipboard via OSC52",
-    callback = function(_event)
+    callback = function()
       local ok, osc52 = pcall(require, "osc52")
       if not ok then return end
 
