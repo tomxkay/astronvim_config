@@ -6,8 +6,10 @@ return function(config)
     -- [TypeScript]
     null_ls.builtins.formatting.eslint_d,
     null_ls.builtins.formatting.prettierd,
-    -- Lua
+    -- [Lua]
     null_ls.builtins.formatting.stylua,
+    -- [Ruby]
+    null_ls.builtins.formatting.rubocop,
 
     -- Set a diagnostic
     -- [TypeScript]
@@ -15,7 +17,7 @@ return function(config)
     -- [Ruby]
     null_ls.builtins.diagnostics.rubocop,
     -- [Lua]
-    null_ls.builtins.diagnostics.selene,
+    null_ls.builtins.diagnostics.sumneko_lua,
 
     -- Set a code action
     -- [TypeScript]
