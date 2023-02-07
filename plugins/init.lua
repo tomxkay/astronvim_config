@@ -41,6 +41,7 @@ return {
     { "MunifTanjim/prettier.nvim" }, -- Prettier plugin for nvim lsp
     { "rmagatti/auto-session" }, -- Auto session attach
     { "sindrets/winshift.nvim" }, -- Windows shifting
+    { "tomxkay/bdelete.vim" }, -- Buffer delete util
     { "tpope/vim-repeat" }, -- Extend vim repeat functionality
     { "tpope/vim-surround" }, -- Manipulate surrounding text
     { "tpope/vim-unimpaired" }, -- Handy bracket mappings
@@ -86,6 +87,21 @@ return {
       config = function()
         require("trouble").setup {
           position = "left",
+        }
+      end,
+    },
+
+    {
+      "jedrzejboczar/possession.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("possession").setup {
+          commands = {
+            save = "SSave",
+            load = "SLoad",
+            delete = "SDelete",
+            list = "SList",
+          },
         }
       end,
     },

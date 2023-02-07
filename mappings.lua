@@ -83,6 +83,9 @@ return {
     ["zm"] = { "<cmd>TZMinimalist<cr>", desc = "Minimist mode" },
     ["zn"] = { "<cmd>TZNarrow<cr>", desc = "Narrow mode" },
 
+    -- Buffer
+    [",bdh"] = { "<cmd>BDelete hidden<cr>", desc = "Delete hidden buffers" },
+
     -- Comment
     [",/"] = { function() require("Comment.api").toggle.linewise.current() end, desc = "Comment line" },
 
@@ -90,9 +93,11 @@ return {
     [",;"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
     [",v"] = { "<cmd>Neotree focus<cr>", desc = "Focus Explorer" },
 
+    -- Possession
+    [",S"] = { "<cmd>Telescope Possession list<cr>", desc = "List Possession sessions" },
+
     -- Session Manager
     [",fs"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" },
-    [",s"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" },
 
     [",f"] = {
       function() vim.lsp.buf.format(astronvim.lsp.format_opts) end,
