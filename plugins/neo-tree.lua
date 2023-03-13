@@ -1,10 +1,13 @@
 return {
-  window = {
-    position = "right",
-    mappings = {
-      ["<tab>"] = {
-        "toggle_node",
+  "nvim-neo-tree/neo-tree.nvim",
+  opts = {
+    window = {
+      position = "right",
+      mappings = {
+        ["<tab>"] = {
+          "toggle_node",
+        },
       },
     },
-  },
+  }
 }
