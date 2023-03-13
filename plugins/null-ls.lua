@@ -12,7 +12,6 @@ return {
 
       -- Lua
       null_ls.builtins.formatting.stylua,
-      null_ls.builtins.diagnostics.sumneko_lua,
 
       -- Ruby
       null_ls.builtins.formatting.rubocop,
