@@ -2,6 +2,8 @@ return {
   init = {
     -- Theme
     { "ellisonleao/gruvbox.nvim" }, -- Colorscheme
+    { "sainnhe/everforest" },
+    { "ishan9299/nvim-solarized-lua" },
 
     -- Git
     { "kdheepak/lazygit.nvim" }, -- Git UI
@@ -27,14 +29,6 @@ return {
     -- Extensions
     { "nvim-telescope/telescope-file-browser.nvim" }, -- File browser
     { "nvim-telescope/telescope-fzy-native.nvim" }, -- Better fuzzy search
-
-    { -- Windows expansion
-      "anuvyklack/windows.nvim",
-      requires = {
-        "anuvyklack/middleclass",
-      },
-      config = function() require("windows").setup() end,
-    },
 
     { -- Vim marks util
       "chentoast/marks.nvim",
