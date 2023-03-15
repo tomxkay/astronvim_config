@@ -4,6 +4,16 @@ return {
     [",w"] = { ":w<cr>", desc = "Save File" },
     [",,w"] = { function() astronvim.ui.toggle_wrap() end, desc = "Toggle wrap" },
 
+    -- Navigating buffers
+    ["L"] = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    ["H"] = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
+
     -- Spliting buffers
     ["ss"] = { "<cmd>split<cr>", desc = "Split window" },
     ["sv"] = { "<cmd>vsplit<cr>", desc = "Split window vertical" },
