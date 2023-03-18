@@ -1,5 +1,8 @@
+local utils = require "astronvim.utils"
+local notify = utils.notify
+
 local function ui_notify(str)
-  if vim.g.ui_notifications_enabled then astronvim.notify(str) end
+  if vim.g.ui_notifications_enabled then notify(str) end
 end
 
 local function configure_auto_hlsearch_toggle()
