@@ -192,6 +192,34 @@ return {
             "rg",
             "--files",
             "--hidden",
+            -- "--no-ignore-vcs",
+            "--glob",
+            "!**/.git/*",
+            "--glob",
+            "!**/node_modules/*",
+            "--glob",
+            "!**/assets/*",
+            "--glob",
+            "!**/.expo/*",
+            "--glob",
+            "!**/tmp/*",
+            "--glob",
+            "!**/log/*",
+            "--glob",
+            "!**/deps/*",
+          },
+        }
+      end,
+      desc = "Find filtered files",
+    },
+    [",F"] = {
+      function()
+        require("telescope.builtin").find_files {
+          prompt_title = 'Find "almost all" files',
+          find_command = {
+            "rg",
+            "--files",
+            "--hidden",
             "--no-ignore-vcs",
             "--glob",
             "!**/.git/*",
@@ -205,12 +233,14 @@ return {
             "!**/tmp/*",
             "--glob",
             "!**/log/*",
+            "--glob",
+            "!**/deps/*",
           },
         }
       end,
-      desc = "Find filtered files",
+      desc = "Find ~* files",
     },
-    [",F"] = {
+    [",,F"] = {
       function()
         require("telescope.builtin").find_files {
           prompt_title = 'Find "all" files',

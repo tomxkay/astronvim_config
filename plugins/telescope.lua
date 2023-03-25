@@ -52,6 +52,8 @@ return {
         "--glob",
         "!**/.expo/*",
         "--glob",
+        "!**/deps/*",
+        "--glob",
         "!**/*.lock",
         "--trim",
       },
@@ -66,6 +68,8 @@ return {
           "!**/.git/*",
           "--glob",
           "!**/node_modules/*",
+          "--glob",
+          "!**/deps/*",
         },
       },
       buffers = {
