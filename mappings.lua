@@ -2,7 +2,9 @@ return {
   n = {
     -- Writing files
     [",w"] = { ":w<cr>", desc = "Save File" },
-    [",,w"] = { function() astronvim.ui.toggle_wrap() end, desc = "Toggle wrap" },
+
+    -- Toggle wrap
+    [",,w"] = { function() require("astronvim.utils.ui").toggle_wrap() end, desc = "Toggle wrap" },
 
     -- Navigating buffers
     ["L"] = {
@@ -82,7 +84,6 @@ return {
     [",z"] = { "<cmd>TZFocus<cr>", desc = "Tmux-like zoom" },
     [",,z"] = { "<C-w>=", desc = "Normalize windows" },
 
-    ["za"] = { "<cmd>TZAtaraxis<cr>", desc = "Zen mode" },
     ["zf"] = { "<cmd>TZFocus<cr>", desc = "Tmux-like zoom" },
     ["zm"] = { "<cmd>TZMinimalist<cr>", desc = "Minimist mode" },
     ["zn"] = { "<cmd>TZNarrow<cr>", desc = "Narrow mode" },
