@@ -144,6 +144,7 @@ return {
     [",T"] = { "<cmd>Telescope<cr>" },
 
     ["<space>;"] = { function() require("telescope").extensions.file_browser.file_browser() end },
+    [",,;"] = { function() require("telescope").extensions.file_browser.file_browser() end },
     [",m"] = {
       function()
         require("telescope.builtin").git_files {
