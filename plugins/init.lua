@@ -65,6 +65,35 @@ return {
   },
 
   {
+    "folke/zen-mode.nvim",
+    lazy = false,
+    config = function()
+      require("zen-mode").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
+  },
+
+  {
+    "jackMort/ChatGPT.nvim",
+    lazy = false,
+    commit = "8820b99c",
+    config = function()
+      require("chatgpt").setup {
+        -- optional configuration
+        welcome_message = "Hey Thomas. How can I help you?",
+      }
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+
+  {
     "jedrzejboczar/possession.nvim",
     lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -84,17 +113,6 @@ return {
     "jose-elias-alvarez/typescript.nvim",
     lazy = false,
     dependencies = "mason-lspconfig.nvim",
-  },
-
-  { -- Zoom toggle zen mode
-    "Pocco81/true-zen.nvim",
-    lazy = false,
-    config = function()
-      require("true-zen").setup {
-        -- your config goes here
-        -- or just leave it empty :)
-      }
-    end,
   },
 
   { -- Github copilot
