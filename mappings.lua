@@ -1,3 +1,10 @@
+local utils = require "astronvim.utils"
+local notify = utils.notify
+
+local function ui_notify(str)
+  if vim.g.ui_notifications_enabled then notify(str) end
+end
+
 return {
   n = {
     -- Writing files
@@ -43,8 +50,11 @@ return {
     [",tba"] = { "<cmd>tab ba<cr>", desc = "Buffers tab all" },
 
     -- Delete marks
-    [",,DM"] = {
-      '<cmd>delm! | delm A-Z0-9"<><CR> | :echo "Cleared all marks!"<CR>',
+    [",dM"] = {
+      function()
+        vim.cmd 'delm! | delm A-Z0-9"<>'
+        ui_notify "All marks deleted!"
+      end,
       desc = "Delete all marks",
     },
 
@@ -80,16 +90,11 @@ return {
     [",bB"] = { "<cmd>GitBlame<cr>", desc = "Git blame" },
 
     -- Zoom Toggle
-    ["<cr>"] = { "<cmd>TZAtaraxis<cr>", desc = "Zen mode" },
-    [",z"] = { "<cmd>TZFocus<cr>", desc = "Tmux-like zoom" },
-    [",,z"] = { "<C-w>=", desc = "Normalize windows" },
-
-    ["zf"] = { "<cmd>TZFocus<cr>", desc = "Tmux-like zoom" },
-    ["zm"] = { "<cmd>TZMinimalist<cr>", desc = "Minimist mode" },
-    ["zn"] = { "<cmd>TZNarrow<cr>", desc = "Narrow mode" },
+    ["<cr>"] = { "<cmd>ZenMode<cr>", desc = "Zen mode" },
 
     -- Buffer
     [",bdh"] = { "<cmd>BDelete hidden<cr>", desc = "Delete hidden buffers" },
+    [",dH"] = { "<cmd>BDelete hidden<cr>", desc = "Delete hidden buffers" },
 
     -- Comment
     [",/"] = { function() require("Comment.api").toggle.linewise.current() end, desc = "Comment line" },
@@ -102,7 +107,17 @@ return {
     [",S"] = { "<cmd>Telescope Possession list<cr>", desc = "List Possession sessions" },
 
     -- Session Manager
-    [",fs"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" },
+    [",,,l"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" },
+    [",,l"] = { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" },
+    [",,L"] = { "<cmd>SessionManager! load_last_session<cr>", desc = "Load last session" },
+    [",,s"] = {
+      function()
+        vim.cmd "SessionManager! save_current_session"
+        ui_notify "Session saved"
+      end,
+      desc = "Save this session",
+    },
+    [",,d"] = { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" },
 
     [",f"] = {
       function() vim.lsp.buf.format(astronvim.lsp.format_opts) end,
