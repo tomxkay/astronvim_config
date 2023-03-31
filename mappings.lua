@@ -119,7 +119,7 @@ return {
     },
     [",,d"] = { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" },
 
-    [",f"] = {
+    [",,f"] = {
       function() vim.lsp.buf.format(astronvim.lsp.format_opts) end,
       desc = "Format code",
     },
@@ -295,6 +295,10 @@ return {
       desc = "Search registers",
     },
     [",fc"] = {
+      function() require("telescope.builtin").colorscheme { enable_preview = false } end,
+      desc = "Search help",
+    },
+    [",fC"] = {
       function() require("telescope.builtin").colorscheme { enable_preview = true } end,
       desc = "Search help",
     },
