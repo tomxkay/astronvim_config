@@ -91,6 +91,8 @@ return {
 
     -- Zoom Toggle
     ["<cr>"] = { "<cmd>ZenMode<cr>", desc = "Zen mode" },
+    [",z"] = { "<Plug>(zoom-toggle)<cr>", desc = "Tmux-like zoom" },
+    [",,z"] = { "<C-w>=", desc = "Normalize windows" },
 
     -- Buffer
     [",bdh"] = { "<cmd>BDelete hidden<cr>", desc = "Delete hidden buffers" },
