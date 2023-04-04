@@ -13,6 +13,7 @@ return {
   { "vim-test/vim-test", lazy = false }, -- Vim test util
 
   -- Utils
+  { "dhruvasagar/vim-zoom", lazy = false }, -- tmux-like zoom
   { "junegunn/vim-easy-align" }, -- Text align util
   { "ojroques/nvim-oscyank", event = "BufEnter" }, -- Copy to system clipboard via OSC52
   { "MunifTanjim/prettier.nvim", event = "BufEnter" }, -- Prettier plugin for nvim lsp
