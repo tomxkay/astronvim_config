@@ -13,11 +13,11 @@ return {
   { "vim-test/vim-test", lazy = false }, -- Vim test util
 
   -- Utils
+  { "andymass/vim-matchup", lazy = false },
   { "dhruvasagar/vim-zoom", lazy = false }, -- tmux-like zoom
   { "junegunn/vim-easy-align" }, -- Text align util
   { "ojroques/nvim-oscyank", event = "BufEnter" }, -- Copy to system clipboard via OSC52
   { "MunifTanjim/prettier.nvim", event = "BufEnter" }, -- Prettier plugin for nvim lsp
-  { "rmagatti/auto-session", event = "BufEnter" }, -- Auto session attach
   { "sindrets/winshift.nvim", event = "BufEnter" }, -- Windows shifting
   { "tomxkay/bdelete.vim", cmd = "BDelete" }, -- Buffer delete util
   { "tpope/vim-repeat", event = "BufEnter" }, -- Extend vim repeat functionality
