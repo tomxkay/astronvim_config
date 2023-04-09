@@ -321,8 +321,6 @@ return {
     ["<down>"] = { "<Plug>SchleppDown", desc = "Move line down" },
     ["<left>"] = { "<Plug>SchleppLeft", desc = "Move line left" },
     ["<right>"] = { "<Plug>SchleppRight", desc = "Move line right" },
-
-    ["zn"] = { "<cmd>'<,'>TZNarrow<cr>", desc = "Narrow mode" },
   },
   x = {
     ["<BS>"] = { "x", desc = "Delete highlighted text with backspace in visual mode" },
